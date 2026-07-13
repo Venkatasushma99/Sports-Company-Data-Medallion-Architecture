@@ -1,7 +1,8 @@
-Architecture
+# Architecture
 
-The solution follows the Medallion Architecture pattern:
+The solution follows the **Medallion Architecture** pattern:
 
+```text
 Source Files
      |
      v
@@ -18,70 +19,82 @@ Business-ready dimensions and facts
      |
      v
 Power BI / Reporting / Analytics
-Medallion Layers
-Bronze Layer
+```
+
+---
+
+# Medallion Layers
+
+## Bronze Layer
 
 The Bronze layer stores raw data received from the source systems.
 
-The source datasets include:
+### Source Datasets
 
-Customers
-Products
-Gross prices
-Orders
+- Customers
+- Products
+- Gross Prices
+- Orders
 
 The data is stored with minimal transformation to maintain the original source values.
 
-Additional metadata columns may include:
+### Metadata Captured
 
-Ingestion timestamp
-Source file name
-Data source
-Batch identifier
-Record creation date
+- Ingestion Timestamp
+- Source File Name
+- Data Source
+- Batch Identifier
+- Record Creation Date
 
 The Bronze layer provides a historical and auditable copy of the source data.
 
-Silver Layer
+---
+
+## Silver Layer
 
 The Silver layer contains cleaned and standardised data.
 
-Transformations performed in this layer include:
+### Transformations Performed
 
-Removing duplicate records
-Handling missing values
-Standardising column names
-Correcting data types
-Trimming unnecessary spaces
-Standardising customer and city names
-Cleaning product descriptions
-Validating customer and product identifiers
-Converting date columns into standard date formats
-Validating numeric price and quantity fields
-Applying business rules
-Rejecting or quarantining invalid records
+- Removing duplicate records
+- Handling missing values
+- Standardising column names
+- Correcting data types
+- Trimming unnecessary spaces
+- Standardising customer and city names
+- Cleaning product descriptions
+- Validating customer and product identifiers
+- Converting date columns into standard date formats
+- Validating numeric price and quantity fields
+- Applying business rules
+- Rejecting or quarantining invalid records
 
 The Silver layer provides reliable and reusable datasets for downstream processing.
 
-Gold Layer
+---
+
+## Gold Layer
 
 The Gold layer contains business-ready datasets designed for analytics and reporting.
 
-The Gold data model follows a star-schema design and contains the following tables:
+### Star Schema
 
-Dimension Tables
-dim_customers
-dim_products
-dim_prices
-Fact Table
-fact_orders
+#### Dimension Tables
 
-These tables support sales analysis by:
+- **dim_customers**
+- **dim_products**
+- **dim_prices**
 
-Customer
-Product
-Location
-Order date
-Quantity
-Gross price
-Revenue
+#### Fact Table
+
+- **fact_orders**
+
+### Business Analytics Supported
+
+- Customer Analysis
+- Product Analysis
+- Location Analysis
+- Order Date Analysis
+- Quantity Analysis
+- Gross Price Analysis
+- Revenue Analysis
