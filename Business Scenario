@@ -1,0 +1,12 @@
+An established parent company recently acquired a sports company.
+
+The parent company already had mature data-engineering practices and a structured data platform. In contrast, the newly acquired company stored its sales data in separate source files without:
+
+Standardised data models
+Automated data-quality checks
+Consistent naming conventions
+Historical data management
+Analytical fact and dimension tables
+A scalable data-processing architecture
+
+The purpose of this project was to integrate the acquired company’s data into a modern and maintainable data platform.
